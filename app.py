@@ -1,4 +1,5 @@
-
+import gspread
+from google.oauth2.service_account import Credentials
 import re
 import hashlib
 from pathlib import Path
@@ -7,6 +8,8 @@ from datetime import date, datetime
 import pandas as pd
 import streamlit as st
 
+SPREADSHEET_NAME = "Delante Leads - Devolutivas"
+WORKSHEET_NAME = "devolutivas"
 # =====================================================
 # CONFIGURAÇÃO
 # =====================================================
