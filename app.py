@@ -163,8 +163,8 @@ def connect_gsheet():
 
     client = gspread.authorize(creds)
 
-    spreadsheet = client.open(SPREADSHEET_NAME)
-    worksheet = spreadsheet.worksheet(WORKSHEET_NAME)
+   spreadsheet = client.open_by_key(SPREADSHEET_ID)
+   worksheet = spreadsheet.worksheet(WORKSHEET_NAME)
 
     return worksheet
 
