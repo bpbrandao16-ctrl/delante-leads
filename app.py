@@ -147,23 +147,8 @@ def load_base(uploaded_file=None):
 
     return df
 
-def load_feedback():
-    if FEEDBACK_PATH.exists():
-        fb = pd.read_csv(FEEDBACK_PATH, dtype=str).fillna("")
-        return fb
-    return pd.DataFrame(columns=[
-        "lead_id", "status", "potencial_percebido", "observacao_vendedor",
-        "proxima_acao", "vendedor", "data_ultima_visita", "updated_at"
-    ])
 
-def save_feedback_row(row):
-    fb = load_feedback()
 
-    # remove feedback anterior do mesmo lead
-    fb = fb[fb["lead_id"] != row["lead_id"]]
-
-    fb = pd.concat([fb, pd.DataFrame([row])], ignore_index=True)
-    fb.to_csv(FEEDBACK_PATH, index=False, encoding="utf-8-sig")
 
 def get_feedback_for_lead(fb, lead_id):
     if fb.empty:
