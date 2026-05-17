@@ -195,7 +195,12 @@ def render_link_buttons(row):
         if clean_text(row.get("maps_url")):
             st.link_button("📍 Maps", row["maps_url"], use_container_width=True)
         else:
-            st.button("📍 Maps", disabled=True, use_container_width=True)
+           st.button(
+    "📍 Maps",
+    disabled=True,
+    use_container_width=True,
+    key=f"maps_{row['lead_id']}"
+)
     with cols[1]:
         if clean_text(row.get("tel_url")):
             st.link_button("📞 Ligar", row["tel_url"], use_container_width=True)
