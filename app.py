@@ -24,8 +24,8 @@ DATA_PATH = Path("leads_base.xlsx")
 
 from google.oauth2.service_account import Credentials
 
-SPREADSHEET_NAME = "Delante Leads - Devolutivas"
-WORKSHEET_NAME = "devolutivas"
+SPREADSHEET_ID = st.secrets["google_sheets"]["spreadsheet_id"]
+WORKSHEET_NAME = st.secrets["google_sheets"]["worksheet_name"]
 
 STATUS_OPTIONS = [
     "Novo",
