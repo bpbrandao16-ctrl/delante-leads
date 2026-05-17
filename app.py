@@ -200,7 +200,11 @@ def render_link_buttons(row):
         if clean_text(row.get("tel_url")):
             st.link_button("📞 Ligar", row["tel_url"], use_container_width=True)
         else:
-            st.button("📞 Ligar", disabled=True, use_container_width=True)
+           st.button(
+    "📞 Ligar",
+    disabled=True,
+    use_container_width=True,
+    key=f"ligar_{row['lead_id']}"
     with cols[2]:
         if clean_text(row.get("whatsapp_url")):
             st.link_button("💬 WhatsApp", row["whatsapp_url"], use_container_width=True)
