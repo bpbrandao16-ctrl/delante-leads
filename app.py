@@ -21,7 +21,7 @@ st.set_page_config(
 )
 
 DATA_PATH = Path("leads_base.xlsx")
-FEEDBACK_PATH = import gspread
+
 from google.oauth2.service_account import Credentials
 
 SPREADSHEET_NAME = "Delante Leads - Devolutivas"
