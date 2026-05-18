@@ -477,3 +477,28 @@ else:
         mime="text/csv",
         use_container_width=True
     )
+def save_feedback_row(row):
+    try:
+        worksheet = connect_gsheet()
+
+        existing = worksheet.get_all_records()
+
+        # remove linha antiga do mesmo lead
+        for idx, item in enumerate(existing, start=2):
+            if item.get("lead_id") == row["lead_id"]:
+                worksheet.delete_rows(idx)
+                break
+
+        worksheet.append_row([
+            row.get("lead_id", ""),
+            row.get("status", ""),
+            row.get("potencial_percebido", ""),
+            row.get("observacao_vendedor", ""),
+            row.get("proxima_acao", ""),
+            row.get("vendedor", ""),
+            row.get("data_ultima_visita", ""),
+            row.get("updated_at", "")
+        ])
+
+    except Exception as e:
+        st.exception(e)
