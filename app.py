@@ -192,7 +192,7 @@ def load_feedback():
         return pd.DataFrame(data)
 
     except Exception as e:
-       st.exception(e)
+        st.exception(e)
 
         return pd.DataFrame(columns=[
             "lead_id",
@@ -204,9 +204,6 @@ def load_feedback():
             "data_ultima_visita",
             "updated_at"
         ])
-
-
-def save_feedback_row(row):
     try:
         worksheet = connect_gsheet()
 
