@@ -150,6 +150,7 @@ def load_base(uploaded_file=None):
 
     return df
 @st.cache_resource
+@st.cache_resource
 def connect_gsheet():
     scope = [
         "https://www.googleapis.com/auth/spreadsheets",
@@ -163,8 +164,9 @@ def connect_gsheet():
 
     client = gspread.authorize(creds)
 
-   spreadsheet = client.open_by_key(SPREADSHEET_ID)
-   worksheet = spreadsheet.worksheet(WORKSHEET_NAME)
+    spreadsheet = client.open_by_key(SPREADSHEET_ID)
+
+    worksheet = spreadsheet.worksheet(WORKSHEET_NAME)
 
     return worksheet
 
