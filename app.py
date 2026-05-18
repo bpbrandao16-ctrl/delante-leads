@@ -192,7 +192,7 @@ def load_feedback():
         return pd.DataFrame(data)
 
     except Exception as e:
-        st.error(f"Erro ao carregar devolutivas: {e}")
+       st.exception(e)
 
         return pd.DataFrame(columns=[
             "lead_id",
